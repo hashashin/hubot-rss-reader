@@ -86,13 +86,13 @@ module.exports = class RSSChecker extends events.EventEmitter
           toString: ->
             if process.env.HUBOT_RSS_IRCCOLORS is "true"
               s = "#{IrcColor.pink(process.env.HUBOT_RSS_HEADER)} #{@title} #{IrcColor.purple('- ['+@feed.title+']')}\n#{IrcColor.lightgrey.underline(@url)}"
-            else if robot.adapterName is "telegram"
+            else if @robot.adapterName is "telegram"
               s = "#{process.env.HUBOT_RSS_HEADER} [#{@title}](#{@url}) - [#{@feed.title}]"
             else
               s = "#{process.env.HUBOT_RSS_HEADER} #{@title} - [#{@feed.title}]\n#{@url}"
 
             if process.env.HUBOT_RSS_PRINTSUMMARY is "true" and @summary?.length > 0
-              if robot.adapterName is "telegram"
+              if @robot.adapterName is "telegram"
                 s += "```\n\u200B#{@summary}\n```"
               else
                 s += "\n#{@summary}"
