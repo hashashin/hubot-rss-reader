@@ -92,7 +92,7 @@ module.exports = (robot) ->
       if room isnt entry.args.room and
          _.includes feeds, entry.feed.url
         logger.info "#{entry.title} #{entry.url} => #{room}"
-        say entry.title
+        say.speak entry.title
         send {room: room}, entry.toString()
 
   checker.on 'error', (err) ->
