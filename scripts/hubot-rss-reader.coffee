@@ -19,6 +19,7 @@ debug      = require('debug')('hubot-rss-reader')
 Promise    = require 'bluebird'
 RSSChecker = require path.join __dirname, '../libs/rss-checker'
 FindRSS    = Promise.promisify require 'find-rss'
+say = require('say')
 
 ## config
 package_json = require path.join __dirname, '../package.json'
